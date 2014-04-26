@@ -4,6 +4,7 @@ class havana::profile::horizon {
     fqdn            => [ '127.0.0.1', hiera('openstack::controller::address::api'), $::fqdn ],
     secret_key      => hiera('openstack::horizon::secret_key'),
     cache_server_ip => hiera('openstack::controller::address::management'),
+    swift           => hiera('openstack::horizon::swift'),
   }
 
   ::havana::resources::firewall { 'Apache (Horizon)': port => '80' }
