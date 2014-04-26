@@ -22,8 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     puppet.vm.synced_folder "../../", "/openstack"
 
-    puppet.vm.provider "vmware_fusion" do |v|
-        v.vmx["memsize"] =  "1024"
+    puppet.vm.provider :virtualbox do |virtualbox, override|
+      virtualbox.customize ['modifyvm', :id, '--memory', '1024']
     end
   end
 
@@ -37,8 +37,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     control.vm.synced_folder "../../", "/openstack"
 
-    control.vm.provider "vmware_fusion" do |v|
-        v.vmx["memsize"] =  "1024"
+    control.vm.provider  :virtualbox do |virtualbox, override|
+      virtualbox.customize ['modifyvm', :id, '--memory', '1024']
     end
   end
 
@@ -52,8 +52,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     swiftstore1.vm.synced_folder "../../", "/openstack"
 
-    swiftstore1.vm.provider "vmware_fusion" do |v|
-        v.vmx["memsize"] =  "1024"
+    swiftstore1.vm.provider  :virtualbox do |virtualbox, override|
+      virtualbox.customize ['modifyvm', :id, '--memory', '1024']
     end
   end
 
@@ -67,8 +67,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     swiftstore2.vm.synced_folder "../../", "/openstack"
 
-    swiftstore2.vm.provider "vmware_fusion" do |v|
-        v.vmx["memsize"] =  "1024"
+    swiftstore2.vm.provider  :virtualbox do |virtualbox, override|
+      virtualbox.customize ['modifyvm', :id, '--memory', '1024']
     end
   end
 
@@ -82,8 +82,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     swiftstore3.vm.synced_folder "../../", "/openstack"
 
-    swiftstore3.vm.provider "vmware_fusion" do |v|
-        v.vmx["memsize"] =  "512"
+    swiftstore3.vm.provider  :virtualbox do |virtualbox, override|
+      virtualbox.customize ['modifyvm', :id, '--memory', '1024']
     end
   end
 
