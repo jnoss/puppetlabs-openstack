@@ -5,6 +5,7 @@ class havana::role::swiftcontroller inherits ::havana::role {
   class { '::havana::profile::mysql': } ->
   class { '::havana::profile::keystone': } ->
   class { '::havana::profile::swift::proxy': }
+  class { '::havana::profile::nova::api': } ->
   class { '::havana::profile::horizon': }
   class { '::havana::profile::auth_file': }
 }
