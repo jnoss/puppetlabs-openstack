@@ -2,41 +2,41 @@ node 'puppet' {
   include ::ntp
 }
 
-node 'control' {
+node 'control.localdomain' {
   include ::havana::role::swiftcontroller
 }
 
-node 'storage' {
+node 'storage.localdomain' {
   include ::havana::role::storage
 }
 
-node 'network' {
+node 'network.localdomain' {
   include ::havana::role::network
 }
 
-node 'compute' {
+node 'compute.localdomain' {
   include ::havana::role::compute
 }
 
-node 'swiftstore1' {
+node 'swiftstore1.localdomain' {
   class { '::havana::role::swiftstorage':
     zone => '1'
   }
 }
 
-node 'swiftstore2' {
+node 'swiftstore2.localdomain' {
   class { '::havana::role::swiftstorage':
     zone => '2'
   }
 }
 
-node 'swiftstore3' {
+node 'swiftstore3.localdomain' {
   class { '::havana::role::swiftstorage':
     zone => '3'
   }
 }
 
-node 'tempest' {
+node 'tempest.localdomain' {
   include ::havana::role::tempest
 }
 
