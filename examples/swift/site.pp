@@ -3,6 +3,7 @@ node 'puppet' {
 }
 
 node 'control.localdomain' {
+  tag 'stack1'
   include ::havana::role::swiftcontroller
 }
 
@@ -19,12 +20,14 @@ node 'compute.localdomain' {
 }
 
 node 'swiftstore1.localdomain' {
+  tag 'stack1'
   class { '::havana::role::swiftstorage':
     zone => '1'
   }
 }
 
 node 'swiftstore2.localdomain' {
+  tag 'stack1'
   class { '::havana::role::swiftstorage':
     zone => '2'
   }
