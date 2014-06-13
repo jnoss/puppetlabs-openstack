@@ -13,12 +13,14 @@ class openstack::resources::repo::epel {
       failovermethod => priority,
       notify         => Exec['yum_refresh']
     }
-    file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6':
-      source => 'puppet:///modules/openstack/RPM-GPG-KEY-EPEL-6',
-      owner  => root,
-      group  => root,
-      mode   => '0644',
-      before => Yumrepo['epel'],
+    if ! defined(File['/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6']) {
+      file { '/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6':
+        source => 'puppet:///modules/openstack/RPM-GPG-KEY-EPEL-6',
+        owner  => root,
+        group  => root,
+        mode   => '0644',
+        before => Yumrepo['epel'],
+      }
     }
     Yumrepo['epel'] -> Package<||>
   }
