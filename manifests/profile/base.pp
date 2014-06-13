@@ -1,7 +1,8 @@
 # The base profile for OpenStack. Installs the repository and ntp
 class openstack::profile::base {
   # everyone also needs to be on the same clock
-  class { '::ntp': }
+  # Note this is already declared elsewhere in RC puppet
+  # class { '::ntp': }
 
   # all nodes need the OpenStack repository
   class { '::openstack::resources::repo': }
