@@ -6,4 +6,5 @@ examples/swift/Puppetfile
 examples/allinone/modules
 examples/multinode/modules
 examples/swift/modules
+examples/rhel_multinode/modules
 Gemfile.lock
